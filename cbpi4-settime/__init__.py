@@ -21,7 +21,7 @@ class SetTime(CBPiExtension):
     @request_mapping(path="/set/{time}", method="GET", auth_required=False)
     async def list(self, request):
         time = log_name = request.match_info['time']
-         logger.info("SetTime:%s " % (time))
+        logger.info("SetTime:%s " % (time))
         return web.Response(status=204)
 
 def setup(cbpi):
