@@ -1,7 +1,11 @@
 import os
+import time
+import logging
 
 from aiohttp import web
 from cbpi.api import *
+
+logger = logging.getLogger(__name__)
 
 class SetTime(CBPiExtension):
 
@@ -12,7 +16,13 @@ class SetTime(CBPiExtension):
 
     @request_mapping(path="/get", method="GET", auth_required=False)
     async def list(self, request):
-        return web.Response(text="1651605534 ")
+        return web.Response(text=int(time.time()))
+
+    @request_mapping(path="/set/{time}", method="GET", auth_required=False)
+    async def list(self, request):
+        time = log_name = request.match_info['time']
+         logger.info("SetTime:%s " % (time))
+        return web.Response(status=204)
 
 def setup(cbpi):
 
