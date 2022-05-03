@@ -14,8 +14,5 @@ setup(name='cbpi4-settime',
         # If any package contains *.txt or *.rst files, include them:
       '': ['*.txt', '*.rst', '*.yaml'],
       'cbpi4-settime': ['*','*.txt', '*.rst', '*.yaml']},
-      packages=['cbpi4-settime'],
-	    install_requires=[
-            'cbpi>=4.0.0.33',
-      ]
+      packages=['cbpi4-settime']
      )
