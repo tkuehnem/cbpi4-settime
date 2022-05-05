@@ -21,7 +21,7 @@
 	}
 
 	function next() {
-		window.location.replace('/index.html');
+		window.location.replace('/cbpi_ui/static/index.html');
 	}
 </script>
 
