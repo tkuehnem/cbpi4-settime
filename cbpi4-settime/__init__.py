@@ -22,7 +22,8 @@ class SetTime(CBPiExtension):
     async def list(self, request):
         time = log_name = request.match_info['time']
         logger.info("SetTime:%s " % (time))
-        return web.Response(status=204)
+        result = os.system("date -s @%s" % (time))
+        return web.Response(status=200,text=result)
 
 def setup(cbpi):
 

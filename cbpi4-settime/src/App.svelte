@@ -6,7 +6,7 @@
 	onMount(async () => {
 		var d = new Date(0);
 
-		fetch('/time').then(
+		fetch('/settime/get').then(
 			res => { 
 				res.text().then(text => {
 					name=  new Date(text * 1000).toLocaleString();
@@ -16,7 +16,7 @@
 	})
 
 	function setTime() {
-		fetch('/settime/' + Math.floor((new Date).getTime()/1000) )
+		fetch('/settime/set' + Math.floor((new Date).getTime()/1000) )
 		next();
 	}
 
