@@ -15,12 +15,12 @@ class SetTime(CBPiExtension):
         self.cbpi.register(self, "/settime", static=os.path.join(path, "public"))
 
     @request_mapping(path="/get", method="GET", auth_required=False)
-    async def list(self, request):
+    async def get(self, request):
         return web.Response(text=int(time.time()))
 
     @request_mapping(path="/set/{time}", method="GET", auth_required=False)
-    async def list(self, request):
-        time = log_name = request.match_info['time']
+    async def set(self, request):
+        time = request.match_info['time']
         logger.info("SetTime:%s " % (time))
         result = os.system("date -s @%s" % (time))
         return web.Response(status=200,text=result)
