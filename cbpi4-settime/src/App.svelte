@@ -16,7 +16,7 @@
 	})
 
 	function setTime() {
-		fetch('/settime/set' + Math.floor((new Date).getTime()/1000) )
+		fetch('/settime/set/' + Math.floor((new Date).getTime()/1000) )
 		next();
 	}
 
